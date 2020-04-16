@@ -9,9 +9,13 @@ from .profile import Profile
 # Vocabulary ------------------------------------------------------------------
 
 class Vocabulary(object):
-    def __init__(self):
-        self.__elementToCode = {GAP_ELEMENT: GAP_CODE}
-        self.__codeToElement = {GAP_CODE: GAP_ELEMENT}
+    def __init__(self, gap_code=None, gap_element=None):
+        if gap_code is None:
+            gap_code = GAP_CODE
+        if gap_element is None:
+            gap_element = GAP_ELEMENT
+        self.__elementToCode = {gap_element: gap_code}
+        self.__codeToElement = {gap_code: gap_element}
 
     def has(self, element):
         return element in self.__elementToCode
